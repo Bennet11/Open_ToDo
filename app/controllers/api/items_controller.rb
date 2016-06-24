@@ -11,9 +11,9 @@ class Api::ItemsController < ApiController
   end
 
   def update
-    items = Items.find(params[:id])
-    if items.update(items_params)
-      render json: items
+    item = Item.find(params[:id])
+    if item.update(item_params)
+      render json: item
     else
       render json: { errors: items.errors.full_messages }, status: :unprocessable_entity
     end
